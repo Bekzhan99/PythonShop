@@ -1,6 +1,6 @@
 import time
 import control
-
+import settings
 
 class User():
     """
@@ -9,12 +9,14 @@ class User():
     user_name = ''
     user_pw = ''
     date_created = ''
+    date_end=''
     is_admin = False
     is_staff = False
     is_client = False
+    is_manager=False
     all_users = []
 
-    def __init__(self):
+    def _init_(self):
         with open('data/users.txt','r') as f:
             user_data = f.read()
         user_list = user_data.strip('\n').split('\n')
@@ -32,10 +34,10 @@ class User():
         self.user_name = user_name
         self.user_pw = user_pw
         self.date_created = time_current
-        user_string = f"{self.user_name},{self.user_pw},{self.date_created},{self.is_admin},{self.is_staff},{self.is_client}"
-        log_message = f"Created new User: {user_string}"
+        user_string = f"{self.user_name},{self.user_pw},{self.date_created},{self.is_admin},{self.is_staff},{self.is_client},{self.is_manager}"
+        log_message = f" Created new User: {user_string}"
         control.logger(log_message)
         with open("data/users.txt",'a') as f:
             f.write(user_string)
             f.write('\n')
-        self.__init__()
+        self._init_()

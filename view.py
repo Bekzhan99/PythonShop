@@ -10,7 +10,7 @@ class Home():
     products = []
     current_user = settings.CURRENT_USER
 
-    def __init__(self):
+    def _init_(self):
         brand = 'Welcome to AzatAI Python Shop'
         print(brand.center(100,'*'))
 
@@ -26,16 +26,28 @@ class Home():
         """
         user = module.User()
         all_users_list = user.all_users
-        print("UserName UserPassword User-Date_created Admin Staff Client")
-        for each in all_users_list:
-            user_each_list = each.split(',')
-            if user_each_list[role]:
-                print(user_each_list)
+        # print("UserName UserPassword User-Date_created Admin Staff Client Manager")
+        # for each in all_users_list:
+        #     user_each_list = each.split(',')
+        #     if user_each_list[role]:
+        #         print(user_each_list)
     def welcome(self):
         if settings.CURRENT_USER_ROLE == 'ADMIN':
             print(f"Welcome Home {settings.CURRENT_USER_ROLE} {settings.CURRENT_USER}".rjust(100, " "))
             print("".center(100,'*'))
             print(f"SITE MANAGEMENT".center(100, ' '))
+        elif settings.CURRENT_USER_ROLE =='Client':
+            print(f"Welcome Home {settings.CURRENT_USER_ROLE} {settings.CURRENT_USER}".rjust(100, " "))
+            print("".center(100,'*'))
+            print(f"Client Dashboard".center(100, ' '))
+        elif settings.CURRENT_USER_ROLE == 'Manager':
+            print(f"Welcome Home {settings.CURRENT_USER_ROLE} {settings.CURRENT_USER}".rjust(100, " "))
+            print("".center(100,'*'))
+            print(f"Manager Dashboard".center(100, ' '))
+        elif settings.CURRENT_USER_ROLE == 'Staff':
+            print(f"Welcome Home {settings.CURRENT_USER_ROLE} {settings.CURRENT_USER}".rjust(100, " "))
+            print("".center(100,'*'))
+            print(f"Staff Dashboard".center(100, ' '))
         else:
             print(f"Welcome GUEST".rjust(100,' '))
             print("".center(100,'*'))

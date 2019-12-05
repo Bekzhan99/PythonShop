@@ -137,7 +137,7 @@ class Control():
         user.is_client=True
         user.add(aty,parol)
         settings.CURRENT_USER_ROLE='Client'
-    
+
     def Client(self):
         while True:
                     user = module.User()
@@ -190,17 +190,17 @@ class Control():
                                                 tauar_tizim.append(u)
                                                 print(f" Алған тауарыңыз {t_tizim}, сізде қалған қаржыңыз {karzhy}")
                                         else:
-                                             print(f'Кешіріңіз сіздің қаржыңыз тауарды алуға жеткіліксіз !!!')
+                                            print(f'Кешіріңіз сіздің қаржыңыз тауарды алуға жеткіліксіз 😟 !!!')
                                     else:
                                         print('Қате шықты қайта енгізіңіз : ')
-                                 elif client_zh=='2':
+                                elif client_zh=='2':
                                     if sum==0:
                                         break
                                     elif sum>0:
                                         name='Сатып алынған тауар тізімі'
                                         print(f''' \n\n1mall online дүкенінен сауда жасағаныңызға көп рахмет !!!
-                             {name.center(50,'-')}
-                             '''+'\n')
+                            {name.center(50,'-')}
+                                    🙃   '''+'\n')
                                         for i in range(0,len(new_tauar),2):
                                             print(new_tauar[i])
                                         j='❤❤❤'
@@ -218,13 +218,16 @@ class Control():
                                             self.logout()
                                         elif sh=='3':
                                             self.Client()
+
+
                         elif sh=='2':
                             self.end()
                             view.Home()
                             self.logout()
                         elif sh=='3':
                             self.Client()
-    
+
+            # TODO
     def end(self):
             time_format  = "%Y-%m-%d %X %A %B %p %r"
             time_current = time.strftime(time_format)
@@ -319,6 +322,7 @@ class Control():
                     self.logout()
             elif sh=='3':
                 self.staff()
+
     def manager(self):
          while True:
             user = module.User()
@@ -554,4 +558,3 @@ class Control():
                         self.logout()
                     elif g=='2':
                         self.admin()
-                                        
